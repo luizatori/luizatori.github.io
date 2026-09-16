@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luiza Pincitori — Currículo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0b0d;
+    --surface: #151517;
+    --surface-2: #1b1b1e;
+    --border: rgba(255,255,255,0.09);
+    --border-strong: rgba(255,255,255,0.16);
+    --text: #f2f2f0;
+    --text-dim: #a3a3ab;
+    --text-faint: #6c6c74;
+    --accent: #3adbc4;
+    --accent-dim: rgba(58,219,196,0.14);
+    --radius: 3px;
+    --maxw: 860px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ -webkit-font-smoothing: antialiased; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.55;
+    font-size: 15px;
+  }
+
+  /* glow layer */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(ellipse 1000px 560px at 12% -8%, rgba(58,219,196,0.20), transparent 62%),
+      radial-gradient(ellipse 800px 560px at 102% 4%, rgba(58,219,196,0.10), transparent 58%),
+      radial-gradient(ellipse 700px 500px at 50% 115%, rgba(58,219,196,0.07), transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* woven grid layer */
+  .weave{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    opacity:0.5;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.055) 0px, rgba(255,255,255,0.055) 1px, transparent 1px, transparent 26px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,0.055) 0px, rgba(255,255,255,0.055) 1px, transparent 1px, transparent 26px);
+    -webkit-mask-image: radial-gradient(ellipse 1100px 750px at 20% 0%, #000 0%, transparent 72%);
+            mask-image: radial-gradient(ellipse 1100px 750px at 20% 0%, #000 0%, transparent 72%);
+  }
+
+  /* grain layer */
+  .grain{
+    position:fixed;
+    inset:-100px;
+    pointer-events:none;
+    z-index:0;
+    opacity:0.5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 180px 180px;
+  }
+
+  .sheet{
+    position:relative;
+    z-index:1;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 72px 40px 100px;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  a{ color: var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------- Header ---------- */
+
+  header.hero{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap: 28px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero h1{
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .hero .role{
+    margin-top: 10px;
+    color: var(--accent);
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap: 9px;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    align-items:flex-start;
+  }
+
+  .contact-list a{ color: var(--text-dim); }
+  .contact-list a:hover{ color: var(--accent); }
+
+  .contact-item{
+    display:flex;
+    align-items:center;
+    gap: 9px;
+  }
+
+  .contact-item svg{
+    width:14px; height:14px;
+    flex-shrink:0;
+    stroke: var(--text-faint);
+  }
+
+  /* ---------- Sections ---------- */
+
+  section{
+    padding: 44px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type{ border-bottom: none; }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .section-head .index{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .section-head h2{
+    font-size: 1.25rem;
+    color: var(--text);
+  }
+
+  .lede{
+    max-width: 62ch;
+    color: var(--text-dim);
+    font-size: 0.96rem;
+  }
+
+  /* ---------- Experience timeline ---------- */
+
+  .timeline{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap: 30px;
+  }
+
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--border-strong);
+  }
+
+  .role-item{
+    position:relative;
+    padding-left: 30px;
+  }
+
+  .role-item::before{
+    content:"";
+    position:absolute;
+    left: 0;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  .role-item .row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:baseline;
+    gap: 8px 20px;
+  }
+
+  .role-item h3{
+    font-size: 1.02rem;
+    color: var(--text);
+  }
+
+  .role-item .company{
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .role-item .period{
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    font-family:'Space Grotesk', sans-serif;
+    white-space:nowrap;
+  }
+
+  .role-item ul{
+    margin-top: 10px;
+    padding-left: 18px;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    display:flex;
+    flex-direction:column;
+    gap: 5px;
+  }
+
+  /* ---------- Projects ---------- */
+
+  .project-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .project-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+    transition: border-color 0.15s ease;
+  }
+
+  .project-card:hover{
+    border-color: var(--border-strong);
+  }
+
+  .project-card .ptitle{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap: 10px;
+  }
+
+  .project-card h3{
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+
+  .project-card .plink{
+    flex-shrink:0;
+    color: var(--text-faint);
+  }
+
+  .project-card .plink:hover{ color: var(--accent); }
+
+  .project-card p{
+    color: var(--text-dim);
+    font-size: 0.87rem;
+    flex-grow:1;
+  }
+
+  .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 6px;
+  }
+
+  .tag{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 0.72rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  /* ---------- Education ---------- */
+
+  .edu-item{
+    display:flex;
+    justify-content:space-between;
+    gap: 20px;
+    flex-wrap:wrap;
+  }
+
+  .edu-item h3{ font-size: 1rem; color: var(--text); }
+  .edu-item .school{ color: var(--text-dim); font-size: 0.9rem; margin-top: 3px; }
+  .edu-item .period{
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    font-family:'Space Grotesk', sans-serif;
+    white-space:nowrap;
+  }
+
+  /* ---------- Skills ---------- */
+
+  .skills-groups{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 40px;
+  }
+
+  .skill-group h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .skill-group .tag-row .tag{
+    color: var(--text-dim);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+
+  /* ---------- Languages ---------- */
+
+  .lang-row{
+    display:flex;
+    gap: 40px;
+    flex-wrap:wrap;
+  }
+
+  .lang-item .lname{ font-size: 0.95rem; color: var(--text); }
+  .lang-item .llevel{ font-size: 0.82rem; color: var(--text-faint); margin-top: 2px; }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    padding-top: 36px;
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    text-align:center;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 700px){
+    .sheet{ padding: 44px 22px 70px; }
+    header.hero{ flex-direction:column; align-items:flex-start; }
+    .project-grid{ grid-template-columns: 1fr; }
+    .skills-groups{ grid-template-columns: 1fr; }
+    .role-item .row{ flex-direction:column; align-items:flex-start; gap:4px; }
+    .edu-item{ flex-direction:column; gap:4px; }
+  }
+
+  @media print{
+    body::before, .weave, .grain{ display:none; }
+    body{ background:#fff; color:#111; }
+    :root{ --text:#111; --text-dim:#333; --text-faint:#666; --border:#ddd; --border-strong:#bbb; --surface:#f7f7f7; --surface-2:#f0f0f0; --accent:#0e8a78; --accent-dim:#e5f8f5; }
+    .sheet{ padding: 20px 10px; }
+    a{ text-decoration:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .project-card{ transition:none; }
+  }
+</style>
+</head>
+<body>
+<div class="weave" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="sheet">
+
+  <header class="hero">
+    <div>
+      <h1>LUIZA PINCITORI</h1>
+      <p class="role"></p>
+    </div>
+    <div class="contact-list">
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" stroke="none"/><path d="M4 6l8 7 8-7"/><path d="M4 6v12h16V6"/></svg>
+        <a href="mailto:luiza.pincitori@email.com">luizapincitori@gmail.com</a>
+      </span>      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>+55 (19) 99789-2829</span>
+      </span>
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Tapiratiba, SP</span>
+      </span>
+     
+      <span class="contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a href="https://github.com/luizatori" target="_blank" rel="noopener">github.com/luizatori</a>
+      </span>
+    </div>
+  </header>
+
+  <section aria-labelledby="sobre-title">
+    <div class="section-head">
+      <span class="index">01</span>
+      <h2 id="sobre-title">Sobre</h2>
+    </div>
+    <p class="lede">Atualmente cursando o sexto semestre do curso de Ciência da Computação no Centro Universitário Fundação de Ensino Octávio Bastos (UNIFEOB), tenho interesse em design gráfico, desenvolvimento web, game design, game development e pretenções de carreira em áreas correlatas. <br> <br>Gostaria de uma oportunidade de trabalho, tenho interesse genuíno em aprender, e assim contribuir para projetos desafiadores e continuar meu desenvolvimento profissional.</p>
+  </section>
+
+ 
+
+  <section aria-labelledby="proj-title">
+    <div class="section-head">
+      <span class="index">03</span>
+      <h2 id="proj-title">Projetos</h2>
+    </div>
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="ptitle">
+          <h3>CAR DEX</h3>
+          <a class="plink" href="https://github.com/luizatori/CarDex" target="_blank" rel="noopener" aria-label="Ver projeto CAR DEX">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+        <p>O Aplicativo móvel tem como objetivo o entretenimento. Trata-se de uma aplicação onde os usuários podem colecionar carros vistos, funcionando como um álbum de figurinhas digital.</p>
+        <div class="tag-row">
+          <span class="tag">Dart</span>
+          <span class="tag">Kotlin</span>
+          <span class="tag">Google ml kit</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="ptitle">
+          <h3>Sistema Drogaria Total</h3>
+          <a class="plink" href="https://github.com/luizatori/Sistema-Drogaria-Total" target="_blank" rel="noopener" aria-label="Ver projeto Sistema Drogaria Total">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+        <p>Sistema de gerenciamento para uma rede de drogarias, com funcionalidades de cadastro de produtos, controle de estoque e geração de relatórios alem de dashboard coorporativo com base em Electron e EJS.</p>
+        <div class="tag-row">
+          <span class="tag">Electron</span>
+          <span class="tag">EJS</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="ptitle">
+          <h3>Pesquisa e análise de Hardware ( ainda não finalizado)</h3>
+          <a class="plink" href="#" target="_blank" rel="noopener" aria-label="Ver projeto Design System Aurora">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+        <p>Nossa ideia inicial tem como o intuito de facilitar a pesquisa de hardware de usuários em quantidades massivas para análise, seja para o game development ou sizing de infraestrutura corporativa.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="edu-title">
+    <div class="section-head">
+      <span class="index">04</span>
+      <h2 id="edu-title">Formação</h2>
+    </div>
+    <div class="edu-item">
+      <div>
+        <h3>Sexto semestre em Ciência da Computação e curso de ADS completo </h3>
+        <p class="school">UNIFEOB</p>
+      </div>
+      <span class="period">2024 - 2026</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="skills-title">
+    <div class="section-head">
+      <span class="index">05</span>
+      <h2 id="skills-title">Habilidades</h2>
+    </div>
+    <div class="skills-groups">
+      <div class="skill-group">
+        <h4>Desenvolvimento</h4>
+        <div class="tag-row">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Node.js</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Ferramentas & práticas</h4>
+        <div class="tag-row">
+          <span class="tag">Git</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Testes automatizados</span>
+          <span class="tag">Acessibilidade</span>
+          <span class="tag">Performance web</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="lang-title">
+    <div class="section-head">
+      <span class="index">06</span>
+      <h2 id="lang-title">Idiomas</h2>
+    </div>
+    <div class="lang-row">
+      <div class="lang-item">
+        <div class="lname">Português</div>
+        <div class="llevel">Nativo</div>
+      </div>
+      <div class="lang-item">
+        <div class="lname">Inglês</div>
+        <div class="llevel">Extremamente Avançado</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    obrigada por ler até aqui. <br> <br> Desenvolvido por Luiza Pincitori
+  </footer>
+
+</div>
+</body>
+</html>
