@@ -156,6 +156,8 @@
     align-items:baseline;
     gap: 14px;
     margin-bottom: 26px;
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
   .section-head .index{
@@ -174,6 +176,17 @@
     max-width: 62ch;
     color: var(--text-dim);
     font-size: 0.96rem;
+  }
+
+  .section-note{
+    max-width: 62ch;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: 22px;
+    margin-top: -8px;
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
   /* ---------- Experience timeline ---------- */
@@ -198,6 +211,8 @@
   .role-item{
     position:relative;
     padding-left: 30px;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .role-item::before{
@@ -264,6 +279,8 @@
     flex-direction:column;
     gap: 12px;
     transition: border-color 0.15s ease;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .project-card:hover{
@@ -317,6 +334,8 @@
     justify-content:space-between;
     gap: 20px;
     flex-wrap:wrap;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
   .edu-item h3{ font-size: 1rem; color: var(--text); }
@@ -439,6 +458,7 @@
       <span class="index">03</span>
       <h2 id="proj-title">Projetos</h2>
     </div>
+    <p class="section-note">Clique no ícone de seta em cada card para acessar o repositório do projeto.</p>
     <div class="project-grid">
 
       <article class="project-card">
